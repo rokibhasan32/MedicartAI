@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Customer Reviews</h1>
+                <p class="text-xl text-gray-600">See what our customers are saying about their MediCart experience.</p>
+            </div>
+
+            <!-- Overall Rating -->
+            <div class="card bg-white shadow-lg mb-8">
+                <div class="card-body text-center">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                        <div class="mb-4 md:mb-0">
+                            <div class="text-5xl font-bold text-green-600 mb-2">4.8</div>
+                            <div class="flex justify-center mb-2">
+                                <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                <i class="fas fa-star text-yellow-400 text-xl"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400 text-xl"></i>
+                            </div>
+                            <p class="text-gray-600">Based on 1,247 reviews</p>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <div class="flex items-center">
+                                <span class="w-20 text-sm">5 stars</span>
+                                <div class="w-48 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                                <span class="w-10 text-sm">85%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-sm">4 stars</span>
+                                <div class="w-48 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 12%"></div>
+                                </div>
+                                <span class="w-10 text-sm">12%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-sm">3 stars</span>
+                                <div class="w-48 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 2%"></div>
+                                </div>
+                                <span class="w-10 text-sm">2%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-sm">2 stars</span>
+                                <div class="w-48 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 1%"></div>
+                                </div>
+                                <span class="w-10 text-sm">1%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-20 text-sm">1 star</span>
+                                <div class="w-48 bg-gray-200 rounded-full h-2 mx-2">
+                                    <div class="bg-yellow-400 h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                                <span class="w-10 text-sm">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Filters -->
+            <div class="flex flex-wrap gap-4 mb-6">
+                <button class="btn btn-outline active filter-btn" data-filter="all">All Reviews</button>
+                <button class="btn btn-outline filter-btn" data-filter="5">5 Stars</button>
+                <button class="btn btn-outline filter-btn" data-filter="4">4 Stars</button>
+                <button class="btn btn-outline filter-btn" data-filter="3">3 Stars</button>
+                <button class="btn btn-outline btn-primary" onclick="document.getElementById('review_modal').showModal()">
+                    <i class="fas fa-plus mr-2"></i>
+                    Write Review
+                </button>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="reviewsGrid">
+                <!-- Review 1 -->
+                <div class="card bg-white shadow-sm" data-rating="5">
+                    <div class="card-body">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="card-title">Sarah Johnson</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500 ml-2">2 days ago</span>
+                                </div>
+                            </div>
+                            <div class="badge badge-success badge-sm">Verified Purchase</div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Excellent Service and Fast Delivery!</h4>
+                        <p class="text-gray-600 mb-4">I've been using MediCart for my regular medications for the past 6 months. The service is always reliable, and the delivery is incredibly fast. The pharmacists are knowledgeable and always available to answer questions.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span>Purchased: Blood Pressure Medication</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="card bg-white shadow-sm" data-rating="5">
+                    <div class="card-body">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="card-title">Michael Chen</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500 ml-2">1 week ago</span>
+                                </div>
+                            </div>
+                            <div class="badge badge-success badge-sm">Verified Purchase</div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Life-saving Emergency Service</h4>
+                        <p class="text-gray-600 mb-4">When I needed emergency medication late at night, MediCart came through. Their 24/7 emergency service is amazing. The delivery person arrived within 2 hours and was very professional. Highly recommended!</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span>Used: Emergency Medicine Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="card bg-white shadow-sm" data-rating="5">
+                    <div class="card-body">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="card-title">Emily Rodriguez</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500 ml-2">2 weeks ago</span>
+                                </div>
+                            </div>
+                            <div class="badge badge-success badge-sm">Verified Purchase</div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Great Prescription Service</h4>
+                        <p class="text-gray-600 mb-4">Uploading my prescription was so easy through their website. The verification was quick, and I received my medications the next day. The packaging was secure and professional.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span>Used: Prescription Upload Service</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="card bg-white shadow-sm" data-rating="4">
+                    <div class="card-body">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="card-title">David Thompson</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500 ml-2">3 weeks ago</span>
+                                </div>
+                            </div>
+                            <div class="badge badge-success badge-sm">Verified Purchase</div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Good Overall Experience</h4>
+                        <p class="text-gray-600 mb-4">The service was good and the medications arrived on time. The only minor issue was that one item was out of stock, but they notified me immediately and offered alternatives. Customer service was helpful.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span>Purchased: Various Medications</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 5 -->
+                <div class="card bg-white shadow-sm" data-rating="5">
+                    <div class="card-body">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="card-title">Lisa Wang</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500 ml-2">1 month ago</span>
+                                </div>
+                            </div>
+                            <div class="badge badge-success badge-sm">Verified Purchase</div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Excellent Pharmacist Consultation</h4>
+                        <p class="text-gray-600 mb-4">I had questions about medication interactions, and the pharmacist consultation service was fantastic. They were patient, knowledgeable, and provided clear explanations. Very professional service!</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span>Used: Pharmacist Consultation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 6 -->
+                <div class="card bg-white shadow-sm" data-rating="5">
+                    <div class="card-body">
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="card-title">Robert Kumar</h3>
+                                <div class="flex items-center mt-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500 ml-2">2 months ago</span>
+                                </div>
+                            </div>
+                            <div class="badge badge-success badge-sm">Verified Purchase</div>
+                        </div>
+                        <h4 class="font-semibold text-lg mb-2">Medical Equipment Rental Saved Us</h4>
+                        <p class="text-gray-600 mb-4">When my father needed a wheelchair after surgery, MediCart's equipment rental service was a lifesaver. The equipment was clean, well-maintained, and the delivery was prompt. Very reasonable prices too.</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-check-circle text-green-500 mr-1"></i>
+                            <span>Used: Equipment Rental Service</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-8">
+                <button class="btn btn-outline btn-wide">Load More Reviews</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Review Modal -->
+    <dialog id="review_modal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-2xl mb-4">Write a Review</h3>
+            <form id="reviewForm">
+                <div class="form-control mb-4">
+                    <label class="label">
+                        <span class="label-text font-semibold">Your Name</span>
+                    </label>
+                    <input type="text" class="input input-bordered" required>
+                </div>
+
+                <div class="form-control mb-4">
+                    <label class="label">
+                        <span class="label-text font-semibold">Email Address</span>
+                    </label>
+                    <input type="email" class="input input-bordered" required>
+                </div>
+
+                <div class="form-control mb-4">
+                    <label class="label">
+                        <span class="label-text font-semibold">Rating</span>
+                    </label>
+                    <div class="rating rating-lg" id="starRating">
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" value="1" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" value="2" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" value="3" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" value="4" />
+                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" value="5" checked />
+                    </div>
+                </div>
+
+                <div class="form-control mb-4">
+                    <label class="label">
+                        <span class="label-text font-semibold">Review Title</span>
+                    </label>
+                    <input type="text" class="input input-bordered" placeholder="Summarize your experience" required>
+                </div>
+
+                <div class="form-control mb-6">
+                    <label class="label">
+                        <span class="label-text font-semibold">Your Review</span>
+                    </label>
+                    <textarea class="textarea textarea-bordered h-32" placeholder="Share your experience with MediCart..." required></textarea>
+                </div>
+
+                <div class="form-control">
+                    <button type="submit" class="btn btn-primary">Submit Review</button>
+                </div>
+            </form>
+            <div class="modal-action">
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        // Review filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active', 'btn-primary');
+                    btn.classList.add('btn-outline');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active', 'btn-primary');
+                this.classList.remove('btn-outline');
+                
+                const filter = this.getAttribute('data-filter');
+                filterReviews(filter);
+            });
+        });
+
+        function filterReviews(rating) {
+            const reviewCards = document.querySelectorAll('#reviewsGrid .card');
+            
+            reviewCards.forEach(card => {
+                if (rating === 'all' || card.getAttribute('data-rating') === rating) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Review form submission
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your review! It will be published after moderation.');
+            document.getElementById('review_modal').close();
+            this.reset();
+        });
+    </script>
+</body>
+</html>

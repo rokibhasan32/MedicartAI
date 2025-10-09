@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Continue Shopping
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-3xl font-bold text-gray-800 mb-8">Shopping Cart</h1>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div id="cartItems">
+                        <!-- Cart items will be loaded here -->
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-1">
+                    <div class="card bg-white shadow-lg sticky top-24">
+                        <div class="card-body">
+                            <h3 class="card-title text-lg mb-4">Order Summary</h3>
+                            
+                            <div class="space-y-2 mb-4">
+                                <div class="flex justify-between">
+                                    <span>Subtotal</span>
+                                    <span id="cartTotal">$0.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Shipping</span>
+                                    <span>$5.00</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Tax</span>
+                                    <span>$0.00</span>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="flex justify-between text-lg font-bold">
+                                    <span>Total</span>
+                                    <span id="orderTotal">$0.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-2">
+                                <button id="checkoutBtn" class="btn btn-primary btn-block" onclick="checkout()">
+                                    Proceed to Checkout
+                                </button>
+                                <button class="btn btn-outline btn-error btn-block" onclick="clearCart()">
+                                    Clear Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

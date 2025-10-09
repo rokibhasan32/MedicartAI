@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Tips - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Health Tips & Resources</h1>
+                <p class="text-xl text-gray-600">Expert health advice and wellness tips from our pharmacy team.</p>
+            </div>
+
+            <!-- Featured Articles -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Featured Articles</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Article 1 -->
+                    <div class="card bg-white shadow-lg service-card">
+                        <figure class="px-6 pt-6">
+                            <div class="w-full h-48 bg-green-50 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-shield-virus text-6xl text-green-600"></i>
+                            </div>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">5 Tips for Boosting Immunity</h2>
+                            <p class="text-gray-600">Learn how to strengthen your immune system with proper nutrition, exercise, and lifestyle changes.</p>
+                            <div class="card-actions justify-end mt-4">
+                                <button class="btn btn-primary btn-sm" onclick="openArticle('immunity')">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="card bg-white shadow-lg service-card">
+                        <figure class="px-6 pt-6">
+                            <div class="w-full h-48 bg-blue-50 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-capsules text-6xl text-blue-600"></i>
+                            </div>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Understanding Medication Side Effects</h2>
+                            <p class="text-gray-600">Learn what to expect and how to manage common medication side effects safely.</p>
+                            <div class="card-actions justify-end mt-4">
+                                <button class="btn btn-primary btn-sm" onclick="openArticle('side-effects')">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="card bg-white shadow-lg service-card">
+                        <figure class="px-6 pt-6">
+                            <div class="w-full h-48 bg-purple-50 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-heart text-6xl text-purple-600"></i>
+                            </div>
+                        </figure>
+                        <div class="card-body">
+                            <h2 class="card-title">Heart Health: Prevention & Care</h2>
+                            <p class="text-gray-600">Essential tips for maintaining cardiovascular health through diet, exercise, and lifestyle.</p>
+                            <div class="card-actions justify-end mt-4">
+                                <button class="btn btn-primary btn-sm" onclick="openArticle('heart-health')">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health Tips Categories -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-6">Health Categories</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <button class="btn btn-outline category-btn active" data-category="all">All Tips</button>
+                    <button class="btn btn-outline category-btn" data-category="nutrition">Nutrition</button>
+                    <button class="btn btn-outline category-btn" data-category="fitness">Fitness</button>
+                    <button class="btn btn-outline category-btn" data-category="mental">Mental Health</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="tipsGrid">
+                    <!-- Tip 1 -->
+                    <div class="card bg-white shadow-sm" data-category="nutrition">
+                        <div class="card-body">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="card-title text-lg">Stay Hydrated</h3>
+                                <span class="badge badge-primary">Nutrition</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Drink at least 8 glasses of water daily. Proper hydration helps with digestion, skin health, and energy levels.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>2 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 2 -->
+                    <div class="card bg-white shadow-sm" data-category="fitness">
+                        <div class="card-body">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="card-title text-lg">Daily Walking Benefits</h3>
+                                <span class="badge badge-secondary">Fitness</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">A 30-minute daily walk can improve cardiovascular health, boost mood, and help maintain healthy weight.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>3 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 3 -->
+                    <div class="card bg-white shadow-sm" data-category="mental">
+                        <div class="card-body">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="card-title text-lg">Stress Management</h3>
+                                <span class="badge badge-accent">Mental Health</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Practice mindfulness meditation for 10 minutes daily to reduce stress and improve mental clarity.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 4 -->
+                    <div class="card bg-white shadow-sm" data-category="nutrition">
+                        <div class="card-body">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="card-title text-lg">Balanced Diet Tips</h3>
+                                <span class="badge badge-primary">Nutrition</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Include a variety of colorful fruits and vegetables in your diet for essential vitamins and antioxidants.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>3 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 5 -->
+                    <div class="card bg-white shadow-sm" data-category="fitness">
+                        <div class="card-body">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="card-title text-lg">Strength Training</h3>
+                                <span class="badge badge-secondary">Fitness</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Incorporate strength training 2-3 times per week to build muscle, improve bone density, and boost metabolism.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 6 -->
+                    <div class="card bg-white shadow-sm" data-category="mental">
+                        <div class="card-body">
+                            <div class="flex items-start justify-between mb-3">
+                                <h3 class="card-title text-lg">Quality Sleep</h3>
+                                <span class="badge badge-accent">Mental Health</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">Aim for 7-9 hours of quality sleep nightly. Establish a consistent sleep schedule and create a relaxing bedtime routine.</p>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>3 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seasonal Health -->
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">Seasonal Health Guide</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-spring-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-seedling text-3xl text-spring-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Spring</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Allergy management</li>
+                            <li>• Spring cleaning safety</li>
+                            <li>• Outdoor activity prep</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-summer-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-sun text-3xl text-summer-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Summer</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Sun protection</li>
+                            <li>• Hydration tips</li>
+                            <li>• Heat safety</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-autumn-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-leaf text-3xl text-autumn-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Autumn</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Flu prevention</li>
+                            <li>• Immune support</li>
+                            <li>• Seasonal recipes</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-winter-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-snowflake text-3xl text-winter-600"></i>
+                        </div>
+                        <h3 class="font-semibold mb-2">Winter</h3>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>• Cold weather care</li>
+                            <li>• Indoor exercise</li>
+                            <li>• Vitamin D needs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Preparedness -->
+            <div class="card bg-red-50 border border-red-200">
+                <div class="card-body">
+                    <h2 class="card-title text-red-800">
+                        <i class="fas fa-first-aid mr-2"></i>
+                        Emergency Preparedness
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="font-semibold text-red-700 mb-3">First Aid Kit Essentials</h3>
+                            <ul class="text-red-600 space-y-2">
+                                <li>• Bandages and gauze</li>
+                                <li>• Antiseptic wipes</li>
+                                <li>• Pain relievers</li>
+                                <li>• Thermometer</li>
+                                <li>• Emergency contact numbers</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-red-700 mb-3">When to Seek Help</h3>
+                            <ul class="text-red-600 space-y-2">
+                                <li>• Difficulty breathing</li>
+                                <li>• Chest pain</li>
+                                <li>• Severe bleeding</li>
+                                <li>• Loss of consciousness</li>
+                                <li>• Severe allergic reactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="emergency-services.html" class="btn btn-error">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            Emergency Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active', 'btn-primary');
+                    btn.classList.add('btn-outline');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active', 'btn-primary');
+                this.classList.remove('btn-outline');
+                
+                const category = this.getAttribute('data-category');
+                filterTips(category);
+            });
+        });
+
+        function filterTips(category) {
+            const tipCards = document.querySelectorAll('#tipsGrid .card');
+            
+            tipCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openArticle(articleType) {
+            const articles = {
+                'immunity': {
+                    title: '5 Tips for Boosting Immunity',
+                    content: `
+                        <h3>1. Eat a Balanced Diet</h3>
+                        <p>Include plenty of fruits, vegetables, lean proteins, and whole grains in your diet. Focus on foods rich in vitamin C, vitamin D, zinc, and antioxidants.</p>
+                        
+                        <h3>2. Stay Hydrated</h3>
+                        <p>Drink adequate water throughout the day to support all bodily functions, including immune response.</p>
+                        
+                        <h3>3. Get Enough Sleep</h3>
+                        <p>Aim for 7-9 hours of quality sleep per night to allow your body to repair and regenerate.</p>
+                        
+                        <h3>4. Exercise Regularly</h3>
+                        <p>Moderate exercise can boost immune function. Aim for at least 30 minutes most days of the week.</p>
+                        
+                        <h3>5. Manage Stress</h3>
+                        <p>Chronic stress can weaken your immune system. Practice relaxation techniques like meditation or deep breathing.</p>
+                    `
+                },
+                'side-effects': {
+                    title: 'Understanding Medication Side Effects',
+                    content: `
+                        <h3>Common Side Effects</h3>
+                        <p>Most medications can cause some side effects. Common ones include nausea, headache, dizziness, or drowsiness.</p>
+                        
+                        <h3>When to Be Concerned</h3>
+                        <p>Contact your doctor if you experience severe side effects like difficulty breathing, swelling, or severe skin reactions.</p>
+                        
+                        <h3>Managing Side Effects</h3>
+                        <p>• Take medication with food if it causes stomach upset<br>
+                        • Stay hydrated<br>
+                        • Follow dosage instructions carefully<br>
+                        • Don't stop medication without consulting your doctor</p>
+                    `
+                },
+                'heart-health': {
+                    title: 'Heart Health: Prevention & Care',
+                    content: `
+                        <h3>Diet for Heart Health</h3>
+                        <p>Focus on a diet rich in fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit saturated fats, trans fats, and sodium.</p>
+                        
+                        <h3>Exercise Recommendations</h3>
+                        <p>Aim for at least 150 minutes of moderate-intensity exercise per week, such as brisk walking, swimming, or cycling.</p>
+                        
+                        <h3>Regular Check-ups</h3>
+                        <p>Monitor your blood pressure, cholesterol levels, and blood sugar regularly. Early detection is key to prevention.</p>
+                    `
+                }
+            };
+
+            const article = articles[articleType];
+            if (article) {
+                // Create modal with article content
+                const modal = document.createElement('div');
+                modal.className = 'modal modal-open';
+                modal.innerHTML = `
+                    <div class="modal-box max-w-4xl">
+                        <h3 class="font-bold text-2xl mb-4">${article.title}</h3>
+                        <div class="py-4">${article.content}</div>
+                        <div class="modal-action">
+                            <button class="btn" onclick="this.closest('.modal').remove()">Close</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+        }
+    </script>
+
+    <style>
+        .bg-spring-100 { background-color: #dcfce7; }
+        .bg-spring-600 { color: #16a34a; }
+        .bg-summer-100 { background-color: #fef3c7; }
+        .bg-summer-600 { color: #d97706; }
+        .bg-autumn-100 { background-color: #fed7aa; }
+        .bg-autumn-600 { color: #ea580c; }
+        .bg-winter-100 { background-color: #e0f2fe; }
+        .bg-winter-600 { color: #0284c7; }
+    </style>
+</body>
+</html>

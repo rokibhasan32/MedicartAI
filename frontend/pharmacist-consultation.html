@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacist Consultation - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Pharmacist Consultation</h1>
+                <p class="text-xl text-gray-600">Get expert advice from our licensed pharmacists about medications and health concerns.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Consultation Form -->
+                <div class="lg:col-span-2">
+                    <div class="card bg-white shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl mb-4">Ask Our Pharmacist</h2>
+                            
+                            <form id="consultationForm">
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Your Name</span>
+                                    </label>
+                                    <input type="text" id="userName" class="input input-bordered" required>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Email Address</span>
+                                    </label>
+                                    <input type="email" id="userEmail" class="input input-bordered" required>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Phone Number</span>
+                                    </label>
+                                    <input type="tel" id="userPhone" class="input input-bordered" required>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Question Category</span>
+                                    </label>
+                                    <select id="questionCategory" class="select select-bordered" required>
+                                        <option value="">Select a category</option>
+                                        <option value="medication">Medication Information</option>
+                                        <option value="side-effects">Side Effects</option>
+                                        <option value="interactions">Drug Interactions</option>
+                                        <option value="dosage">Dosage & Usage</option>
+                                        <option value="storage">Storage & Handling</option>
+                                        <option value="general">General Health</option>
+                                        <option value="emergency">Emergency Advice</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Your Question</span>
+                                    </label>
+                                    <textarea id="userQuestion" class="textarea textarea-bordered h-32" placeholder="Describe your query in detail. Include medication names, dosages, and any symptoms you're experiencing." required></textarea>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Current Medications (Optional)</span>
+                                    </label>
+                                    <textarea id="currentMeds" class="textarea textarea-bordered h-20" placeholder="List any medications you're currently taking"></textarea>
+                                </div>
+
+                                <div class="form-control">
+                                    <button type="submit" class="btn btn-primary btn-lg">Submit Question</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Information Sidebar -->
+                <div class="space-y-6">
+                    <!-- Pharmacist Info -->
+                    <div class="card bg-white shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="avatar mb-4">
+                                <div class="w-24 h-24 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+                                    <i class="fas fa-user-md text-4xl text-green-600"></i>
+                                </div>
+                            </div>
+                            <h3 class="card-title justify-center">Licensed Pharmacists</h3>
+                            <p class="text-gray-600">Our team of experienced pharmacists is here to help you with medication-related questions and concerns.</p>
+                        </div>
+                    </div>
+
+                    <!-- Response Time -->
+                    <div class="card bg-blue-50 border border-blue-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-blue-800 text-sm">
+                                <i class="fas fa-clock mr-2"></i>
+                                Response Time
+                            </h3>
+                            <ul class="space-y-2 text-blue-700 text-sm">
+                                <li>• Standard questions: 4-6 hours</li>
+                                <li>• Urgent matters: 1-2 hours</li>
+                                <li>• Emergency: Call immediately</li>
+                                <li>• Available 7 days a week</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="card bg-green-50 border border-green-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-green-800 text-sm">
+                                <i class="fas fa-list-alt mr-2"></i>
+                                We Can Help With
+                            </h3>
+                            <ul class="space-y-2 text-green-700 text-sm">
+                                <li>• Medication side effects</li>
+                                <li>• Drug interactions</li>
+                                <li>• Proper usage instructions</li>
+                                <li>• Storage recommendations</li>
+                                <li>• Over-the-counter advice</li>
+                                <li>• General health questions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="card bg-red-50 border border-red-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-red-800 text-sm">
+                                <i class="fas fa-exclamation-triangle mr-2"></i>
+                                Emergency Notice
+                            </h3>
+                            <p class="text-red-700 text-sm">For medical emergencies, severe side effects, or overdose situations, please call emergency services immediately or visit the nearest hospital.</p>
+                            <div class="mt-3">
+                                <a href="emergency-services.html" class="btn btn-sm btn-error btn-block">
+                                    <i class="fas fa-phone mr-1"></i>
+                                    Emergency Help
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="mt-12">
+                <h2 class="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title text-lg">Can pharmacists prescribe medications?</h3>
+                            <p>While pharmacists cannot prescribe most medications, they can provide expert advice on proper usage, side effects, and recommend over-the-counter alternatives when appropriate.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title text-lg">How quickly will I get a response?</h3>
+                            <p>Most questions are answered within 4-6 hours during business hours. Urgent matters receive priority and are typically addressed within 1-2 hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title text-lg">Is this service confidential?</h3>
+                            <p>Yes, all consultations are completely confidential. Your personal health information is protected and only accessible to our licensed pharmacy team.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body">
+                            <h3 class="card-title text-lg">What information should I provide?</h3>
+                            <p>Please include medication names, dosages, your symptoms, and any other relevant health information to help us provide the best advice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        document.getElementById('consultationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('userName').value,
+                email: document.getElementById('userEmail').value,
+                phone: document.getElementById('userPhone').value,
+                category: document.getElementById('questionCategory').value,
+                question: document.getElementById('userQuestion').value,
+                currentMeds: document.getElementById('currentMeds').value
+            };
+
+            // Show success message
+            alert('Your question has been submitted successfully! Our pharmacists will respond within 4-6 hours.');
+            
+            // Reset form
+            this.reset();
+            
+            // In a real application, you would send this to your backend
+            console.log('Consultation submitted:', formData);
+        });
+    </script>
+</body>
+</html>

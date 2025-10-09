@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedicartAI- Your Trusted Pharmacy</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"></path>
+                        </svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="medicine-request.html">Medicine Request</a></li>
+                        <li><a href="prescription.html">Prescription</a></li>
+                        <li><a href="pharmacist-consultation.html">Consultation</a></li>
+                    </ul>
+                </div>
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1 font-medium">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="medicine-request.html">Medicine Request</a></li>
+                    <li><a href="prescription.html">Prescription</a></li>
+                    <li><a href="pharmacist-consultation.html">Consultation</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end">
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                        <div class="indicator">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="badge badge-sm indicator-item bg-green-600 text-white" id="cartCount">0</span>
+                        </div>
+                    </div>
+                    <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                        <div class="card-body">
+                            <span class="font-bold text-lg" id="cartItemsCount">0 Items</span>
+                            <span class="text-info" id="cartTotal">Subtotal: $0.00</span>
+                            <div class="card-actions">
+                                <button class="btn btn-primary btn-block" onclick="viewCart()">View cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="userSection">
+                    <a href="login.html" class="btn btn-ghost mr-2">Login</a>
+                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                </div>
+                <div id="loggedInSection" class="hidden">
+                    <div class="dropdown dropdown-end">
+                        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                            <div class="w-10 rounded-full bg-green-600 text-white flex items-center justify-center">
+                                <i class="fas fa-user"></i>
+                            </div>
+                        </div>
+                        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a id="userProfileLink">Profile</a></li>
+                            <li><a onclick="logout()">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white">
+        <div class="hero min-h-screen">
+            <div class="hero-content flex-col lg:flex-row-reverse max-w-7xl mx-auto px-4 py-10 animate-fade-in">
+                <div class="lg:w-1/2 flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1585435557343-3b092031d5ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" 
+                         class="max-w-md rounded-lg shadow-2xl" alt="Pharmacy" />
+                </div>
+                <div class="lg:w-1/2 mt-10 lg:mt-0 lg:pr-10">
+                    <h1 class="text-4xl lg:text-5xl font-bold mb-6">Your Health, Our Priority</h1>
+                    <p class="py-4 text-lg">MediCart provides comprehensive pharmacy services including prescription fulfillment, medical equipment rental, and expert pharmacist consultations - all in one place.</p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <a href="#services" class="btn btn-secondary btn-lg">Our Services</a>
+                        <a href="medicine-request.html" class="btn btn-outline btn-accent btn-lg">Request Medicine</a>
+                        <a href="prescription.html" class="btn btn-outline btn-accent btn-lg">Upload Prescription</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Notch Experience Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Top Notch Experience</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">MediCart is a responsive platform perfect for all screen sizes, providing seamless healthcare solutions whenever and wherever you need them.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-animation">
+                <!-- Emergency Case -->
+                <div class="card emergency-card shadow-xl service-card">
+                    <div class="card-body">
+                        <h3 class="card-title text-2xl mb-4">Emergency Case</h3>
+                        <p class="mb-6">If you need a doctor urgently outside of opening hours, call our emergency appointment number for immediate service.</p>
+                        <div class="card-actions">
+                            <a href="emergency-services.html" class="btn btn-outline btn-accent">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Doctors Timetable -->
+                <div class="card timeline-card shadow-xl service-card">
+                    <div class="card-body">
+                        <h3 class="card-title text-2xl mb-4">Doctors Timetable</h3>
+                        <p class="mb-6">All our medications have individual doctor consultations. Click below to see services and current timetable for our doctors.</p>
+                        <div class="card-actions">
+                            <a href="pharmacist-consultation.html" class="btn btn-outline btn-accent">View Timetable</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Opening Hours -->
+                <div class="card hours-card shadow-xl service-card">
+                    <div class="card-body">
+                        <h3 class="card-title text-2xl mb-4">Opening Hours</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex justify-between">
+                                <span>Monday - Friday</span>
+                                <span>8:00 - 17:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Saturday</span>
+                                <span>9:30 - 17:30</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>8:30 - 16:00</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions">
+                            <a href="#contact" class="btn btn-outline btn-accent">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Our Pharmacy Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
+                <!-- Medicine Request -->
+                <div class="card bg-base-100 shadow-xl service-card">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-prescription-bottle"></i>
+                        </div>
+                        <h3 class="card-title justify-center">Medicine Request</h3>
+                        <p class="text-center">Can't find your medication? Request any medicine and we'll source it for you.</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="medicine-request.html" class="btn btn-primary">Request Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prescription Services -->
+                <div class="card bg-base-100 shadow-xl service-card">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-medical"></i>
+                        </div>
+                        <h3 class="card-title justify-center">Prescription Services</h3>
+                        <p class="text-center">Upload your prescription and get your medications delivered to your doorstep.</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="prescription.html" class="btn btn-primary">Upload Prescription</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pharmacist Consultation -->
+                <div class="card bg-base-100 shadow-xl service-card">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="card-title justify-center">Pharmacist Consultation</h3>
+                        <p class="text-center">Get expert advice from licensed pharmacists about medications and health concerns.</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="pharmacist-consultation.html" class="btn btn-primary">Consult Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Equipment Rental -->
+                <div class="card bg-base-100 shadow-xl service-card">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-wheelchair"></i>
+                        </div>
+                        <h3 class="card-title justify-center">Medical Equipment</h3>
+                        <p class="text-center">Rent wheelchairs, oxygen cylinders, nebulizers and other medical equipment.</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="equipment-rental.html" class="btn btn-primary">Browse Equipment</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Supplement Recommendations -->
+                <div class="card bg-base-100 shadow-xl service-card">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                        <h3 class="card-title justify-center">Supplement Guide</h3>
+                        <p class="text-center">Get personalized supplement recommendations based on your health goals.</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="supplement-recommendation.html" class="btn btn-primary">Get Recommendations</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Health Resources -->
+                <div class="card bg-base-100 shadow-xl service-card">
+                    <div class="card-body">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3 class="card-title justify-center">Health Resources</h3>
+                        <p class="text-center">Access health tips, medication information, and wellness resources.</p>
+                        <div class="card-actions justify-center mt-4">
+                            <a href="health-tips.html" class="btn btn-primary">Explore Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">Featured Products</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 stagger-animation" id="productsGrid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+            <div class="text-center mt-8">
+                <button class="btn btn-outline btn-primary" onclick="loadAllProducts()">View All Products</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Section -->
+    <section class="py-16 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 text-red-700">Emergency Medicine Request</h2>
+            <p class="text-lg mb-8 text-gray-700 max-w-2xl mx-auto">Need medication urgently? Our emergency service ensures you get critical medicines when you need them most.</p>
+            <a href="emergency-services.html" class="btn btn-error btn-lg">
+                <i class="fas fa-phone-alt mr-2"></i>
+                Emergency Request
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a href="customer-reviews.html" class="link link-hover">Reviews</a>
+                <a href="faq-help-center.html" class="link link-hover">FAQ</a>
+                <a href="health-tips.html" class="link link-hover">Health Tips</a>
+                <a href="#contact" class="link link-hover">Contact</a>
+            </div>
+        </nav>
+        <nav>
+            <div class="grid grid-flow-col gap-4">
+                <a><i class="fab fa-twitter text-xl"></i></a>
+                <a><i class="fab fa-youtube text-xl"></i></a>
+                <a><i class="fab fa-facebook text-xl"></i></a>
+            </div>
+        </nav>
+        <aside>
+            <p>Copyright © 2024 - All rights reserved by MediCart Ltd.</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/ai-assistant.js"></script>
+</body>
+</html>

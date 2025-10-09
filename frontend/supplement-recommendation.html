@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplement Recommendations - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Supplement Recommendations</h1>
+                <p class="text-xl text-gray-600">Get personalized supplement recommendations based on your health goals and needs.</p>
+            </div>
+
+            <!-- Recommendation Form -->
+            <div class="card bg-white shadow-xl mb-8">
+                <div class="card-body">
+                    <h2 class="card-title text-2xl mb-6">Tell Us About Your Health Goals</h2>
+                    
+                    <form id="recommendationForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Basic Information -->
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Age Group</span>
+                                </label>
+                                <select id="ageGroup" class="select select-bordered" required>
+                                    <option value="">Select age group</option>
+                                    <option value="18-25">18-25 years</option>
+                                    <option value="26-35">26-35 years</option>
+                                    <option value="36-45">36-45 years</option>
+                                    <option value="46-55">46-55 years</option>
+                                    <option value="56-65">56-65 years</option>
+                                    <option value="65+">65+ years</option>
+                                </select>
+                            </div>
+
+                            <div class="form-control">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Gender</span>
+                                </label>
+                                <select id="gender" class="select select-bordered" required>
+                                    <option value="">Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <!-- Health Goals -->
+                            <div class="form-control md:col-span-2">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Primary Health Goal</span>
+                                </label>
+                                <select id="primaryGoal" class="select select-bordered" required>
+                                    <option value="">Select your main goal</option>
+                                    <option value="immunity">Boost Immunity</option>
+                                    <option value="energy">Increase Energy</option>
+                                    <option value="weight">Weight Management</option>
+                                    <option value="bone">Bone & Joint Health</option>
+                                    <option value="heart">Heart Health</option>
+                                    <option value="brain">Brain & Memory</option>
+                                    <option value="skin">Skin, Hair & Nails</option>
+                                    <option value="digestive">Digestive Health</option>
+                                    <option value="sleep">Better Sleep</option>
+                                    <option value="stress">Stress Management</option>
+                                </select>
+                            </div>
+
+                            <!-- Additional Goals -->
+                            <div class="form-control md:col-span-2">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Additional Health Concerns</span>
+                                </label>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                    <label class="cursor-pointer label justify-start">
+                                        <input type="checkbox" class="checkbox checkbox-sm mr-2" value="vitamin-d">
+                                        <span class="label-text">Vitamin D Deficiency</span>
+                                    </label>
+                                    <label class="cursor-pointer label justify-start">
+                                        <input type="checkbox" class="checkbox checkbox-sm mr-2" value="iron">
+                                        <span class="label-text">Iron Deficiency</span>
+                                    </label>
+                                    <label class="cursor-pointer label justify-start">
+                                        <input type="checkbox" class="checkbox checkbox-sm mr-2" value="calcium">
+                                        <span class="label-text">Calcium Needs</span>
+                                    </label>
+                                    <label class="cursor-pointer label justify-start">
+                                        <input type="checkbox" class="checkbox checkbox-sm mr-2" value="omega3">
+                                        <span class="label-text">Omega-3 Needs</span>
+                                    </label>
+                                    <label class="cursor-pointer label justify-start">
+                                        <input type="checkbox" class="checkbox checkbox-sm mr-2" value="probiotics">
+                                        <span class="label-text">Probiotics</span>
+                                    </label>
+                                    <label class="cursor-pointer label justify-start">
+                                        <input type="checkbox" class="checkbox checkbox-sm mr-2" value="multivitamin">
+                                        <span class="label-text">Multivitamin</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Diet & Lifestyle -->
+                            <div class="form-control md:col-span-2">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Diet Type</span>
+                                </label>
+                                <select id="dietType" class="select select-bordered">
+                                    <option value="">Select diet type</option>
+                                    <option value="omnivore">Omnivore</option>
+                                    <option value="vegetarian">Vegetarian</option>
+                                    <option value="vegan">Vegan</option>
+                                    <option value="pescatarian">Pescatarian</option>
+                                    <option value="gluten-free">Gluten-Free</option>
+                                    <option value="dairy-free">Dairy-Free</option>
+                                </select>
+                            </div>
+
+                            <!-- Activity Level -->
+                            <div class="form-control md:col-span-2">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Activity Level</span>
+                                </label>
+                                <select id="activityLevel" class="select select-bordered">
+                                    <option value="">Select activity level</option>
+                                    <option value="sedentary">Sedentary (little to no exercise)</option>
+                                    <option value="light">Lightly Active (light exercise 1-3 days/week)</option>
+                                    <option value="moderate">Moderately Active (moderate exercise 3-5 days/week)</option>
+                                    <option value="active">Very Active (hard exercise 6-7 days/week)</option>
+                                    <option value="athlete">Extremely Active (athlete level training)</option>
+                                </select>
+                            </div>
+
+                            <!-- Current Medications -->
+                            <div class="form-control md:col-span-2">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Current Medications (Optional)</span>
+                                </label>
+                                <textarea id="currentMeds" class="textarea textarea-bordered h-20" placeholder="List any medications you're currently taking. This helps us avoid potential interactions."></textarea>
+                            </div>
+
+                            <!-- Allergies -->
+                            <div class="form-control md:col-span-2">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Allergies (Optional)</span>
+                                </label>
+                                <input type="text" id="allergies" class="input input-bordered" placeholder="List any known allergies">
+                            </div>
+                        </div>
+
+                        <div class="form-control mt-6">
+                            <button type="submit" class="btn btn-primary btn-lg">Get Recommendations</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Results Section (Initially Hidden) -->
+            <div id="resultsSection" class="hidden">
+                <h2 class="text-3xl font-bold mb-6 text-center">Your Personalized Recommendations</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8" id="recommendationsGrid">
+                    <!-- Recommendations will be populated here -->
+                </div>
+
+                <div class="card bg-yellow-50 border border-yellow-200">
+                    <div class="card-body">
+                        <h3 class="card-title text-yellow-800">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>
+                            Important Notice
+                        </h3>
+                        <p class="text-yellow-700">
+                            These recommendations are for informational purposes only. Always consult with a healthcare professional before starting any new supplement regimen, especially if you have pre-existing medical conditions or are taking medications.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- General Supplement Guide -->
+            <div class="mt-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">Popular Supplement Categories</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-shield-virus text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center text-lg">Immune Support</h3>
+                            <p class="text-sm text-gray-600">Vitamin C, Zinc, Vitamin D, Elderberry</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-battery-full text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center text-lg">Energy & Vitality</h3>
+                            <p class="text-sm text-gray-600">B-Complex, Iron, CoQ10, Magnesium</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-brain text-2xl text-purple-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center text-lg">Brain Health</h3>
+                            <p class="text-sm text-gray-600">Omega-3, Ginkgo Biloba, B12, Phosphatidylserine</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-bone text-2xl text-red-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center text-lg">Bone & Joint</h3>
+                            <p class="text-sm text-gray-600">Calcium, Vitamin D, Glucosamine, MSM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        document.getElementById('recommendationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                ageGroup: document.getElementById('ageGroup').value,
+                gender: document.getElementById('gender').value,
+                primaryGoal: document.getElementById('primaryGoal').value,
+                dietType: document.getElementById('dietType').value,
+                activityLevel: document.getElementById('activityLevel').value,
+                currentMeds: document.getElementById('currentMeds').value,
+                allergies: document.getElementById('allergies').value
+            };
+
+            // Get checked concerns
+            const concerns = [];
+            document.querySelectorAll('input[type="checkbox"]:checked').forEach(checkbox => {
+                concerns.push(checkbox.value);
+            });
+            formData.concerns = concerns;
+
+            // Generate recommendations based on form data
+            const recommendations = generateRecommendations(formData);
+            
+            // Display results
+            displayRecommendations(recommendations);
+            
+            // Show results section
+            document.getElementById('resultsSection').classList.remove('hidden');
+            
+            // Scroll to results
+            document.getElementById('resultsSection').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function generateRecommendations(formData) {
+            // This is a simplified example - in a real app, this would be more sophisticated
+            const baseRecommendations = [
+                {
+                    name: "Multivitamin Complex",
+                    description: "Comprehensive daily multivitamin with essential vitamins and minerals",
+                    benefits: ["Overall health support", "Energy production", "Immune function"],
+                    price: 25.99,
+                    category: "general"
+                },
+                {
+                    name: "Vitamin D3 1000IU",
+                    description: "Essential for bone health and immune system support",
+                    benefits: ["Bone strength", "Immune support", "Mood regulation"],
+                    price: 15.99,
+                    category: "immunity"
+                },
+                {
+                    name: "Omega-3 Fish Oil",
+                    description: "High-quality fish oil for heart and brain health",
+                    benefits: ["Heart health", "Brain function", "Joint support"],
+                    price: 29.99,
+                    category: "heart"
+                }
+            ];
+
+            // Filter based on primary goal
+            let filtered = [...baseRecommendations];
+            
+            if (formData.primaryGoal === 'immunity') {
+                filtered.push({
+                    name: "Vitamin C with Zinc",
+                    description: "Powerful combination for immune system support",
+                    benefits: ["Immune boost", "Antioxidant protection", "Cold prevention"],
+                    price: 18.99,
+                    category: "immunity"
+                });
+            }
+
+            if (formData.primaryGoal === 'energy') {
+                filtered.push({
+                    name: "B-Complex Vitamins",
+                    description: "Essential B vitamins for energy metabolism",
+                    benefits: ["Energy production", "Stress support", "Nervous system health"],
+                    price: 22.99,
+                    category: "energy"
+                });
+            }
+
+            if (formData.primaryGoal === 'bone') {
+                filtered.push({
+                    name: "Calcium & Magnesium",
+                    description: "Bone health formula with calcium and magnesium",
+                    benefits: ["Bone density", "Muscle function", "Nerve health"],
+                    price: 19.99,
+                    category: "bone"
+                });
+            }
+
+            // Add based on concerns
+            if (formData.concerns.includes('probiotics')) {
+                filtered.push({
+                    name: "Probiotic Blend",
+                    description: "10-strain probiotic for digestive health",
+                    benefits: ["Gut health", "Digestive support", "Immune function"],
+                    price: 34.99,
+                    category: "digestive"
+                });
+            }
+
+            return filtered;
+        }
+
+        function displayRecommendations(recommendations) {
+            const grid = document.getElementById('recommendationsGrid');
+            grid.innerHTML = recommendations.map(rec => `
+                <div class="card bg-white shadow-lg">
+                    <div class="card-body">
+                        <h3 class="card-title">${rec.name}</h3>
+                        <p class="text-gray-600 text-sm">${rec.description}</p>
+                        <div class="space-y-2 my-3">
+                            ${rec.benefits.map(benefit => `
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-green-500 mr-2 text-sm"></i>
+                                    <span class="text-sm">${benefit}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="flex justify-between items-center mt-4">
+                            <span class="text-green-600 font-bold">$${rec.price}</span>
+                            <button class="btn btn-primary btn-sm" onclick="addToCart(${JSON.stringify(rec).replace(/"/g, '&quot;')})">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

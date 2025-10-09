@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Equipment Rental - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Medical Equipment Rental</h1>
+                <p class="text-xl text-gray-600">Rent high-quality medical equipment for short-term or long-term needs.</p>
+            </div>
+
+            <!-- Equipment Categories -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-6">Available Equipment Categories</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button class="btn btn-outline category-btn active" data-category="all">All Equipment</button>
+                    <button class="btn btn-outline category-btn" data-category="mobility">Mobility Aids</button>
+                    <button class="btn btn-outline category-btn" data-category="respiratory">Respiratory</button>
+                    <button class="btn btn-outline category-btn" data-category="daily-living">Daily Living</button>
+                </div>
+            </div>
+
+            <!-- Equipment Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="equipmentGrid">
+                <!-- Wheelchair -->
+                <div class="card bg-white shadow-xl service-card" data-category="mobility">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-blue-50 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-wheelchair text-6xl text-blue-600"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Standard Wheelchair</h2>
+                        <p class="text-gray-600">Lightweight, foldable wheelchair for indoor and outdoor use.</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Daily Rate:</span>
+                                <span class="text-green-600 font-bold">$25/day</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Weekly Rate:</span>
+                                <span class="text-green-600 font-bold">$150/week</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monthly Rate:</span>
+                                <span class="text-green-600 font-bold">$400/month</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" onclick="rentEquipment('Wheelchair')">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oxygen Cylinder -->
+                <div class="card bg-white shadow-xl service-card" data-category="respiratory">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-red-50 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-lungs text-6xl text-red-600"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Oxygen Cylinder</h2>
+                        <p class="text-gray-600">Medical grade oxygen cylinder with regulator and flow meter.</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Daily Rate:</span>
+                                <span class="text-green-600 font-bold">$40/day</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Weekly Rate:</span>
+                                <span class="text-green-600 font-bold">$250/week</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monthly Rate:</span>
+                                <span class="text-green-600 font-bold">$800/month</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" onclick="rentEquipment('Oxygen Cylinder')">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nebulizer -->
+                <div class="card bg-white shadow-xl service-card" data-category="respiratory">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-green-50 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-wind text-6xl text-green-600"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Nebulizer Machine</h2>
+                        <p class="text-gray-600">Portable nebulizer for asthma and respiratory treatments.</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Daily Rate:</span>
+                                <span class="text-green-600 font-bold">$15/day</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Weekly Rate:</span>
+                                <span class="text-green-600 font-bold">$80/week</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monthly Rate:</span>
+                                <span class="text-green-600 font-bold">$200/month</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" onclick="rentEquipment('Nebulizer')">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hospital Bed -->
+                <div class="card bg-white shadow-xl service-card" data-category="daily-living">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-purple-50 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-bed text-6xl text-purple-600"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Adjustable Hospital Bed</h2>
+                        <p class="text-gray-600">Electric adjustable bed for home care with side rails.</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Daily Rate:</span>
+                                <span class="text-green-600 font-bold">$35/day</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Weekly Rate:</span>
+                                <span class="text-green-600 font-bold">$200/week</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monthly Rate:</span>
+                                <span class="text-green-600 font-bold">$600/month</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" onclick="rentEquipment('Hospital Bed')">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Walker -->
+                <div class="card bg-white shadow-xl service-card" data-category="mobility">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-yellow-50 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-walking text-6xl text-yellow-600"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Folding Walker</h2>
+                        <p class="text-gray-600">Lightweight aluminum walker with adjustable height.</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Daily Rate:</span>
+                                <span class="text-green-600 font-bold">$10/day</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Weekly Rate:</span>
+                                <span class="text-green-600 font-bold">$50/week</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monthly Rate:</span>
+                                <span class="text-green-600 font-bold">$120/month</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" onclick="rentEquipment('Walker')">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Monitor -->
+                <div class="card bg-white shadow-xl service-card" data-category="monitoring">
+                    <figure class="px-6 pt-6">
+                        <div class="w-full h-48 bg-indigo-50 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-heartbeat text-6xl text-indigo-600"></i>
+                        </div>
+                    </figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Vital Signs Monitor</h2>
+                        <p class="text-gray-600">Multi-parameter monitor for blood pressure, oxygen, and heart rate.</p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Daily Rate:</span>
+                                <span class="text-green-600 font-bold">$50/day</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Weekly Rate:</span>
+                                <span class="text-green-600 font-bold">$300/week</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="font-semibold">Monthly Rate:</span>
+                                <span class="text-green-600 font-bold">$900/month</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block" onclick="rentEquipment('Vital Signs Monitor')">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rental Process -->
+            <div class="mt-12 bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">How to Rent Equipment</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-600">1</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Select Equipment</h3>
+                        <p class="text-sm text-gray-600">Choose from our wide range of medical equipment</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-600">2</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Submit Request</h3>
+                        <p class="text-sm text-gray-600">Fill out the rental form with your details</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-600">3</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Approval & Delivery</h3>
+                        <p class="text-sm text-gray-600">We'll contact you and arrange delivery</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-green-600">4</span>
+                        </div>
+                        <h3 class="font-semibold mb-2">Use & Return</h3>
+                        <p class="text-sm text-gray-600">Use the equipment and return when done</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="mt-8 text-center">
+                <div class="card bg-blue-50 border border-blue-200 max-w-2xl mx-auto">
+                    <div class="card-body">
+                        <h3 class="card-title text-blue-800 justify-center">
+                            <i class="fas fa-phone-alt mr-2"></i>
+                            Need Help Choosing?
+                        </h3>
+                        <p class="text-blue-700 mb-4">Our equipment specialists can help you select the right equipment for your needs.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="tel:+880123456789" class="btn btn-primary">
+                                <i class="fas fa-phone mr-2"></i>
+                                Call: +880 1234 56789
+                            </a>
+                            <a href="pharmacist-consultation.html" class="btn btn-outline btn-primary">
+                                <i class="fas fa-comment-medical mr-2"></i>
+                                Get Advice
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        // Equipment category filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active', 'btn-primary');
+                    btn.classList.add('btn-outline');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active', 'btn-primary');
+                this.classList.remove('btn-outline');
+                
+                const category = this.getAttribute('data-category');
+                filterEquipment(category);
+            });
+        });
+
+        function filterEquipment(category) {
+            const equipmentCards = document.querySelectorAll('.service-card');
+            
+            equipmentCards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function rentEquipment(equipmentName) {
+            alert(`Thank you for your interest in renting ${equipmentName}! Our team will contact you shortly to complete the rental process.`);
+        }
+    </script>
+</body>
+</html>

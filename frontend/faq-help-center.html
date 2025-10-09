@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ & Help Center - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">FAQ & Help Center</h1>
+                <p class="text-xl text-gray-600">Find answers to common questions about our services</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="card bg-white shadow-lg mb-8">
+                <div class="card-body">
+                    <div class="form-control">
+                        <div class="input-group">
+                            <input type="text" placeholder="Search for answers..." class="input input-bordered w-full" id="searchInput">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold mb-6">Browse by Category</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button class="btn btn-outline category-btn active" data-category="all">All FAQs</button>
+                    <button class="btn btn-outline category-btn" data-category="ordering">Ordering</button>
+                    <button class="btn btn-outline category-btn" data-category="delivery">Delivery</button>
+                    <button class="btn btn-outline category-btn" data-category="prescription">Prescriptions</button>
+                </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="space-y-4" id="faqAccordion">
+                <!-- Ordering FAQs -->
+                <div class="faq-category" data-category="ordering">
+                    <h3 class="text-xl font-bold mb-4 text-green-700">Ordering Questions</h3>
+                    
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" checked="checked" />
+                        <div class="collapse-title text-xl font-medium">
+                            How do I place an order?
+                        </div>
+                        <div class="collapse-content">
+                            <p>You can place an order through our website by browsing products, adding them to your cart, and proceeding to checkout. You can also upload prescriptions or request specific medications through our medicine request service.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Do I need a prescription to order medicines?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Prescription requirements depend on the medication. Over-the-counter medications can be ordered without a prescription. For prescription medications, you'll need to upload a valid prescription from a licensed healthcare provider.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Can I modify or cancel my order?
+                        </div>
+                        <div class="collapse-content">
+                            <p>You can modify or cancel your order within 1 hour of placing it, provided it hasn't been processed for shipping. Contact our customer service team immediately for assistance with order modifications or cancellations.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            What payment methods do you accept?
+                        </div>
+                        <div class="collapse-content">
+                            <p>We accept various payment methods including credit/debit cards, mobile banking, and cash on delivery (where available). All online payments are secured with SSL encryption for your safety.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery FAQs -->
+                <div class="faq-category" data-category="delivery">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Delivery Questions</h3>
+                    
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            What are your delivery areas and times?
+                        </div>
+                        <div class="collapse-content">
+                            <p>We deliver to most urban areas. Standard delivery takes 2-3 business days. Express delivery (1-2 days) and same-day delivery are available in select areas. Delivery times are typically between 9 AM and 8 PM.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Do you offer emergency delivery?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Yes, we offer emergency delivery services for critical medications. Our emergency service operates 24/7 with delivery times ranging from 30 minutes to 4 hours depending on the urgency and location.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            How much does delivery cost?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Standard delivery is free for orders above $50. For orders below $50, a small delivery fee applies. Express and emergency delivery services have additional charges based on location and urgency.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Can I track my order?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Yes, you can track your order through your account dashboard. We provide real-time tracking updates and SMS/email notifications about your order status and estimated delivery time.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prescription FAQs -->
+                <div class="faq-category" data-category="prescription">
+                    <h3 class="text-xl font-bold mb-4 text-purple-700">Prescription Questions</h3>
+                    
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            How do I upload a prescription?
+                        </div>
+                        <div class="collapse-content">
+                            <p>You can upload your prescription through our website or mobile app. Simply go to the prescription upload section, take a clear photo of your prescription, and submit it. Our pharmacists will verify it within 1-2 hours.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            What information should be on the prescription?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Your prescription should include: patient's full name, medication name, dosage instructions, quantity, prescribing doctor's information, and date of prescription. Make sure all text is clearly visible in the photo.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            How long does prescription verification take?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Prescription verification typically takes 1-2 hours during business hours. For prescriptions submitted outside business hours, verification will be completed the next business day. You'll receive notification once verified.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Can I get refills for my prescription?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Yes, we can process prescription refills if authorized by your doctor. You can request refills through your account, and we'll coordinate with your healthcare provider if additional authorization is needed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General FAQs -->
+                <div class="faq-category" data-category="general">
+                    <h3 class="text-xl font-bold mb-4 text-orange-700">General Questions</h3>
+                    
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Are your medicines genuine and safe?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Yes, all our medicines are sourced directly from licensed manufacturers and distributors. We maintain strict quality control measures and only supply genuine, FDA-approved medications.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            What is your return policy?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Due to safety regulations, we cannot accept returns of prescription medications. Unopened over-the-counter products can be returned within 7 days of delivery. Contact customer service for assistance with returns.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            How can I contact customer service?
+                        </div>
+                        <div class="collapse-content">
+                            <p>You can contact our customer service team through phone, email, or live chat. Our support hours are 8:00 AM to 10:00 PM daily. For emergency assistance, our 24/7 emergency line is always available.</p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow bg-white border border-gray-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-xl font-medium">
+                            Do you offer pharmacist consultations?
+                        </div>
+                        <div class="collapse-content">
+                            <p>Yes, we offer free pharmacist consultations through our website, mobile app, and phone. Our licensed pharmacists can provide medication advice, answer questions about side effects, and help with dosage instructions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="mt-12 card bg-white shadow-lg">
+                <div class="card-body">
+                    <h2 class="card-title text-2xl mb-4 justify-center">Still Need Help?</h2>
+                    <p class="text-center text-gray-600 mb-6">Our customer support team is here to assist you</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-phone text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Call Us</h3>
+                            <p class="text-gray-600 mb-2">Speak directly with our team</p>
+                            <a href="tel:+880123456789" class="btn btn-sm btn-primary">
+                                +880 1234 56789
+                            </a>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-envelope text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Email Us</h3>
+                            <p class="text-gray-600 mb-2">Send us your questions</p>
+                            <a href="mailto:support@medicart.com" class="btn btn-sm btn-primary">
+                                support@medicart.com
+                            </a>
+                        </div>
+
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-comments text-2xl text-purple-600"></i>
+                            </div>
+                            <h3 class="font-semibold mb-2">Live Chat</h3>
+                            <p class="text-gray-600 mb-2">Instant messaging support</p>
+                            <button class="btn btn-sm btn-primary" onclick="startLiveChat()">
+                                Start Chat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="mt-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">Quick Links</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="prescription.html" class="btn btn-outline">
+                        <i class="fas fa-file-medical mr-2"></i>
+                        Upload Prescription
+                    </a>
+                    <a href="medicine-request.html" class="btn btn-outline">
+                        <i class="fas fa-pills mr-2"></i>
+                        Request Medicine
+                    </a>
+                    <a href="pharmacist-consultation.html" class="btn btn-outline">
+                        <i class="fas fa-user-md mr-2"></i>
+                        Get Consultation
+                    </a>
+                    <a href="emergency-services.html" class="btn btn-outline">
+                        <i class="fas fa-ambulance mr-2"></i>
+                        Emergency Help
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        // FAQ Category Filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active', 'btn-primary');
+                    btn.classList.add('btn-outline');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active', 'btn-primary');
+                this.classList.remove('btn-outline');
+                
+                const category = this.getAttribute('data-category');
+                filterFAQs(category);
+            });
+        });
+
+        function filterFAQs(category) {
+            const faqCategories = document.querySelectorAll('.faq-category');
+            
+            faqCategories.forEach(cat => {
+                if (category === 'all' || cat.getAttribute('data-category') === category) {
+                    cat.style.display = 'block';
+                } else {
+                    cat.style.display = 'none';
+                }
+            });
+        }
+
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const searchTerm = this.value.toLowerCase();
+            const faqItems = document.querySelectorAll('.collapse-title');
+            
+            faqItems.forEach(item => {
+                const question = item.textContent.toLowerCase();
+                const parentCategory = item.closest('.faq-category');
+                
+                if (question.includes(searchTerm)) {
+                    item.closest('.collapse').style.display = 'block';
+                    parentCategory.style.display = 'block';
+                } else {
+                    item.closest('.collapse').style.display = 'none';
+                }
+            });
+
+            // Show/hide category headers based on visible items
+            document.querySelectorAll('.faq-category').forEach(category => {
+                const visibleItems = category.querySelectorAll('.collapse[style=""]').length + 
+                                   category.querySelectorAll('.collapse[style*="block"]').length;
+                if (visibleItems === 0 && searchTerm !== '') {
+                    category.style.display = 'none';
+                }
+            });
+        });
+
+        function startLiveChat() {
+            // In a real application, this would connect to a live chat service
+            alert('Live chat feature will be available soon! In the meantime, please use our AI assistant or contact us via phone/email.');
+        }
+
+        // Initialize all FAQs as visible
+        document.addEventListener('DOMContentLoaded', function() {
+            filterFAQs('all');
+        });
+    </script>
+</body>
+</html>

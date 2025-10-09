@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Services - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-red-700 mb-4">Emergency Services</h1>
+                <p class="text-xl text-gray-600">24/7 emergency medicine delivery and medical assistance</p>
+            </div>
+
+            <!-- Emergency Alert Banner -->
+            <div class="alert alert-error shadow-lg mb-8">
+                <div>
+                    <i class="fas fa-exclamation-triangle text-2xl"></i>
+                    <div>
+                        <h3 class="font-bold">Emergency Alert</h3>
+                        <div class="text-xs">For life-threatening emergencies, call emergency services immediately</div>
+                    </div>
+                </div>
+                <div class="flex-none">
+                    <a href="tel:911" class="btn btn-sm btn-error">
+                        <i class="fas fa-phone mr-2"></i>
+                        Call 911
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Emergency Request Form -->
+                <div>
+                    <div class="card bg-white shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl text-red-700 mb-4">Emergency Medicine Request</h2>
+                            <p class="text-gray-600 mb-6">Fill out this form for urgent medication needs. Our emergency team will contact you immediately.</p>
+                            
+                            <form id="emergencyForm">
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Full Name</span>
+                                    </label>
+                                    <input type="text" class="input input-bordered" required>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Phone Number</span>
+                                    </label>
+                                    <input type="tel" class="input input-bordered" placeholder="Emergency contact number" required>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Address for Delivery</span>
+                                    </label>
+                                    <textarea class="textarea textarea-bordered h-20" placeholder="Full delivery address" required></textarea>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Medicine Needed</span>
+                                    </label>
+                                    <input type="text" class="input input-bordered" placeholder="Medicine name and dosage" required>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Urgency Level</span>
+                                    </label>
+                                    <select class="select select-bordered" required>
+                                        <option value="">Select urgency level</option>
+                                        <option value="critical">Critical (Life-threatening)</option>
+                                        <option value="urgent">Urgent (Within 2 hours)</option>
+                                        <option value="high">High Priority (Within 4 hours)</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-control mb-4">
+                                    <label class="label">
+                                        <span class="label-text font-semibold">Emergency Details</span>
+                                    </label>
+                                    <textarea class="textarea textarea-bordered h-24" placeholder="Describe the emergency situation and any important medical information"></textarea>
+                                </div>
+
+                                <div class="form-control">
+                                    <button type="submit" class="btn btn-error btn-lg">
+                                        <i class="fas fa-bell mr-2"></i>
+                                        Request Emergency Assistance
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Emergency Information -->
+                <div class="space-y-6">
+                    <!-- Contact Information -->
+                    <div class="card bg-red-50 border border-red-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-red-800">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                Emergency Contacts
+                            </h3>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span>Emergency Hotline</span>
+                                    <a href="tel:+880123456789" class="btn btn-sm btn-error">
+                                        <i class="fas fa-phone mr-1"></i>
+                                        +880 1234 56789
+                                    </a>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Ambulance Service</span>
+                                    <a href="tel:199" class="btn btn-sm btn-error">
+                                        <i class="fas fa-ambulance mr-1"></i>
+                                        Dial 199
+                                    </a>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span>Police Emergency</span>
+                                    <a href="tel:999" class="btn btn-sm btn-error">
+                                        <i class="fas fa-shield-alt mr-1"></i>
+                                        Dial 999
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Response Times -->
+                    <div class="card bg-orange-50 border border-orange-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-orange-800">
+                                <i class="fas fa-clock mr-2"></i>
+                                Emergency Response Times
+                            </h3>
+                            <ul class="space-y-2 text-orange-700">
+                                <li class="flex justify-between">
+                                    <span>Critical Emergencies</span>
+                                    <span class="font-semibold">30-60 minutes</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>Urgent Requests</span>
+                                    <span class="font-semibold">1-2 hours</span>
+                                </li>
+                                <li class="flex justify-between">
+                                    <span>High Priority</span>
+                                    <span class="font-semibold">2-4 hours</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- What We Can Help With -->
+                    <div class="card bg-green-50 border border-green-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-green-800">
+                                <i class="fas fa-first-aid mr-2"></i>
+                                Emergency Services We Provide
+                            </h3>
+                            <ul class="space-y-2 text-green-700">
+                                <li>• Emergency medication delivery</li>
+                                <li>• Critical care medicines</li>
+                                <li>• Life-saving drugs</li>
+                                <li>• Prescription emergencies</li>
+                                <li>• Medical equipment delivery</li>
+                                <li>• Pharmacy consultation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Important Instructions -->
+                    <div class="card bg-blue-50 border border-blue-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-blue-800">
+                                <i class="fas fa-exclamation-circle mr-2"></i>
+                                Important Instructions
+                            </h3>
+                            <ul class="space-y-2 text-blue-700 text-sm">
+                                <li>• Have your prescription ready if available</li>
+                                <li>• Provide clear address details</li>
+                                <li>• Keep your phone accessible</li>
+                                <li>• Inform about any allergies</li>
+                                <li>• Have identification ready</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- When to Go to Hospital -->
+                    <div class="card bg-purple-50 border border-purple-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-purple-800">
+                                <i class="fas fa-hospital mr-2"></i>
+                                When to Go to Hospital
+                            </h3>
+                            <p class="text-purple-700 text-sm mb-3">Seek immediate hospital care for:</p>
+                            <ul class="space-y-1 text-purple-700 text-sm">
+                                <li>• Chest pain or difficulty breathing</li>
+                                <li>• Severe bleeding</li>
+                                <li>• Loss of consciousness</li>
+                                <li>• Severe burns</li>
+                                <li>• Suspected stroke</li>
+                                <li>• Severe allergic reactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Preparedness -->
+            <div class="mt-12">
+                <h2 class="text-3xl font-bold mb-6 text-center">Emergency Preparedness</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card bg-white shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-first-aid text-2xl text-red-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center">First Aid Kit</h3>
+                            <p class="text-gray-600">Keep a well-stocked first aid kit at home and in your car.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-pills text-2xl text-blue-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center">Emergency Medications</h3>
+                            <p class="text-gray-600">Maintain a 3-day supply of essential medications.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-white shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-phone text-2xl text-green-600"></i>
+                            </div>
+                            <h3 class="card-title justify-center">Emergency Contacts</h3>
+                            <p class="text-gray-600">Keep important phone numbers accessible and updated.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        document.getElementById('emergencyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show emergency confirmation
+            const modal = document.createElement('div');
+            modal.className = 'modal modal-open';
+            modal.innerHTML = `
+                <div class="modal-box">
+                    <div class="text-center">
+                        <i class="fas fa-exclamation-triangle text-4xl text-red-600 mb-4"></i>
+                        <h3 class="font-bold text-2xl mb-4">Emergency Request Submitted!</h3>
+                        <p class="py-4">Our emergency team has been alerted and will contact you within 15 minutes.</p>
+                        <p class="text-sm text-gray-600 mb-4">Please keep your phone accessible and stay at the provided address.</p>
+                        <div class="modal-action justify-center">
+                            <button class="btn btn-error" onclick="this.closest('.modal').remove()">Understood</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Auto-dial emergency numbers when buttons are clicked
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!this.getAttribute('href').includes('911') && !this.getAttribute('href').includes('999')) {
+                    e.preventDefault();
+                    const number = this.getAttribute('href').replace('tel:', '');
+                    if (confirm(`Call ${number}?`)) {
+                        window.location.href = this.getAttribute('href');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+    <div class="card bg-white shadow-xl w-full max-w-md mx-4">
+        <div class="card-body">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-heartbeat text-white text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-800">Welcome Back</h2>
+                <p class="text-gray-600">Sign in to your MediCart account</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-control mb-4">
+                    <label class="label">
+                        <span class="label-text font-semibold">Email Address</span>
+                    </label>
+                    <input type="email" id="email" class="input input-bordered" placeholder="Enter your email" required>
+                </div>
+
+                <div class="form-control mb-6">
+                    <label class="label">
+                        <span class="label-text font-semibold">Password</span>
+                    </label>
+                    <input type="password" id="password" class="input input-bordered" placeholder="Enter your password" required>
+                </div>
+
+                <div class="form-control mb-4">
+                    <button type="submit" id="loginBtn" class="btn btn-primary btn-lg">Login</button>
+                </div>
+            </form>
+
+            <div class="text-center">
+                <p class="text-gray-600">Don't have an account? 
+                    <a href="signup.html" class="text-green-600 hover:text-green-700 font-semibold">Sign up</a>
+                </p>
+            </div>
+
+            <div class="divider">OR</div>
+
+            <div class="text-center">
+                <a href="index.html" class="btn btn-ghost">
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

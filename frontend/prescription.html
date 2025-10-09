@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Prescription - MediCart</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="navbar bg-base-100 max-w-7xl mx-auto px-4">
+            <div class="navbar-start">
+                <a class="flex items-center text-xl font-bold text-green-600" href="index.html">
+                    <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center mr-2">
+                        <i class="fas fa-heartbeat text-white text-lg"></i>
+                    </div>
+                    MediCart
+                </a>
+            </div>
+            <div class="navbar-end">
+                <a href="index.html" class="btn btn-ghost">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="min-h-screen py-8">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Upload Prescription</h1>
+                <p class="text-xl text-gray-600">Upload your prescription and get your medications delivered to your doorstep.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Upload Section -->
+                <div class="card bg-white shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4">Upload Your Prescription</h2>
+                        
+                        <form id="prescriptionForm">
+                            <div class="form-control mb-4">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Full Name</span>
+                                </label>
+                                <input type="text" id="fullName" class="input input-bordered" required>
+                            </div>
+
+                            <div class="form-control mb-4">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Contact Information</span>
+                                </label>
+                                <input type="text" id="contactInfo" class="input input-bordered" placeholder="Phone or Email" required>
+                            </div>
+
+                            <div class="form-control mb-6">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Upload Prescription</span>
+                                </label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                    <p class="text-gray-600 mb-2">Drag & drop your prescription image here</p>
+                                    <p class="text-sm text-gray-500 mb-4">or</p>
+                                    <input type="file" id="prescriptionFile" class="file-input file-input-bordered w-full" accept="image/*" required>
+                                    <p class="text-xs text-gray-500 mt-2">Supported formats: JPG, PNG, PDF (Max 5MB)</p>
+                                </div>
+                            </div>
+
+                            <div class="form-control mb-4">
+                                <label class="label">
+                                    <span class="label-text font-semibold">Additional Notes</span>
+                                </label>
+                                <textarea id="additionalNotes" class="textarea textarea-bordered h-20" placeholder="Any special instructions or notes for the pharmacist"></textarea>
+                            </div>
+
+                            <div class="form-control">
+                                <button type="submit" class="btn btn-primary btn-lg">Upload Prescription</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Information Section -->
+                <div class="space-y-6">
+                    <div class="card bg-green-50 border border-green-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-green-800">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                Secure & Confidential
+                            </h3>
+                            <p class="text-green-700">Your prescription and personal information are protected with bank-level security encryption.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-blue-50 border border-blue-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-blue-800">
+                                <i class="fas fa-bolt mr-2"></i>
+                                Quick Processing
+                            </h3>
+                            <ul class="space-y-2 text-blue-700">
+                                <li>• Prescription verification: 1-2 hours</li>
+                                <li>• Medicine preparation: Same day</li>
+                                <li>• Free delivery available</li>
+                                <li>• SMS/Email notifications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card bg-purple-50 border border-purple-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-purple-800">
+                                <i class="fas fa-user-md mr-2"></i>
+                                Pharmacist Verified
+                            </h3>
+                            <p class="text-purple-700">All prescriptions are reviewed by licensed pharmacists to ensure safety and accuracy.</p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-orange-50 border border-orange-200">
+                        <div class="card-body">
+                            <h3 class="card-title text-orange-800">
+                                <i class="fas fa-phone-alt mr-2"></i>
+                                Need Help?
+                            </h3>
+                            <p class="text-orange-700">Contact our pharmacy team for assistance with prescription uploads.</p>
+                            <div class="mt-2">
+                                <a href="tel:+880123456789" class="btn btn-sm btn-outline btn-orange">
+                                    <i class="fas fa-phone mr-1"></i>
+                                    Call Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <aside>
+            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mb-4">
+                <i class="fas fa-heartbeat text-white text-lg"></i>
+            </div>
+            <p class="font-bold text-lg">MediCart Pharmacy</p>
+            <p>Providing quality healthcare solutions since 2024</p>
+        </aside>
+    </footer>
+
+    <!-- AI Assistant Chat -->
+    <div class="floating-chat">
+        <div class="chat-bubble" id="chatToggle">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3 class="text-lg font-semibold">MediCart Assistant</h3>
+                <button id="closeChat" class="btn btn-ghost btn-sm text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    Hello! I'm your MediCart assistant. How can I help you today?
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Type your message...">
+                <button id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/ai-assistant.js"></script>
+    <script>
+        document.getElementById('prescriptionForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                contactInfo: document.getElementById('contactInfo').value,
+                additionalNotes: document.getElementById('additionalNotes').value
+            };
+
+            const fileInput = document.getElementById('prescriptionFile');
+            if (fileInput.files.length === 0) {
+                alert('Please select a prescription file to upload.');
+                return;
+            }
+
+            // Show success message
+            alert('Your prescription has been uploaded successfully! Our pharmacists will verify it and contact you soon.');
+            
+            // Reset form
+            this.reset();
+            
+            // In a real application, you would send this to your backend
+            console.log('Prescription uploaded:', formData);
+        });
+    </script>
+</body>
+</html>
